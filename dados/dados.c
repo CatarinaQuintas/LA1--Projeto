@@ -34,13 +34,17 @@ int mudar_estado(ESTADO *e, COORDENADA c){
 
     e->tab[c.linha][c.coluna] = BRANCA;
 
+    e->num_jogadas = e->num_jogadas + 1;
+
     if (e->jogador_atual == 1){
         e->jogador_atual = 2;
+
+        e->num_jogadas_jogador1 = e->num_jogadas_jogador1 + 1;
     }
     else{
         e->jogador_atual = 1;
 
-        //Adcionar às jogadas feitas aqui
+        e->num_jogadas_jogador2 = e->num_jogadas_jogador2 + 1;
     }
 
     return 1;
