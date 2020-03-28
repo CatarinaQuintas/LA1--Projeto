@@ -19,7 +19,14 @@
  * Preta corresponde ao '#' .
  * Vazio corresponde '.' .
  */
-typedef enum {VAZIO, BRANCA, PRETA} CASA;
+typedef enum {
+    UM = '1',
+    DOIS = '2',
+    VAZIO = '.',
+    BRANCA = '*',
+    PRETA = '#'
+} CASA;
+
 
 /**
  * @brief Tipos de dados para coordenada
@@ -91,3 +98,13 @@ ESTADO *inicializar_estado();
 * @return  O novo estado.
 */
 int mudar_estado(ESTADO *e, COORDENADA c);
+
+
+int obter_jogador_atual(ESTADO *estado);
+
+
+int obter_numero_de_jogadas(ESTADO *estado);
+
+
+int obter_numero_de_jogadas_do_jogador_atual(ESTADO *estado);
+

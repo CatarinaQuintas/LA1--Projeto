@@ -32,7 +32,7 @@ int jogadorVencedor (ESTADO *estado){
     }
 }
 
-int imprimirTabuleiro (ESTADO *estado) {
+int imprimir_tabuleiro (ESTADO *estado) {
     FILE *fp;
 
     fp = fopen("tabuleiro.txt", "w");
@@ -87,9 +87,9 @@ int lerTabuleiro (ESTADO *estado) {
                 } else if (line[i] == '#') {
                     estado->tab[q][i] = PRETA;
                 } else if (line[i] == '2') {
-                    estado->tab[q][i] = '2';
+                    estado->tab[q][i] = DOIS;
                 } else if (line[i] == '1') {
-                    estado->tab[q][i] = '1';
+                    estado->tab[q][i] = UM;
                 }
             }
 

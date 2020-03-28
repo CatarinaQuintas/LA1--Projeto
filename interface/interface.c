@@ -16,44 +16,41 @@ for (int i = 0; i < LINE_SIZE; i++) {
                 putchar(' ');
             }
 
-            if (i==0 && j==7) {
-                if (jogadorVencedor == 2) {
-                    putchar('*');
-                } else {
-                    putchar('2');
-                }
-            }
-            else if (i==7 && j==0) {
-                if (jogadorVencedor == 1) {
-                    putchar('*');
-                } else {
-                    putchar('1');
-                }
-            }
-            else if (e->tab[i][j] == VAZIO) {
-                putchar('.');
-            }
-            else if (e->tab[i][j] == BRANCA) {
-                putchar('*');
-            }
-            else{
-                putchar('#');
-            }
+            putchar(e->tab[i][j]);
+
         }
         putchar('\n');
     }
 
     printf("%s\n", "  abcdefgh");
 
-    printf("# %i PL%i  ", e->num_jogadas, e->jogador_atual);
+    int num_jogadas_totais = obter_numero_de_jogadas(e) * 2;
 
-    if (e->jogador_atual == 1) {
-        printf("(%i)", e->num_jogadas_jogador1);
-    } else {
-        printf("(%i)", e->num_jogadas_jogador2);
+    if(e->jogador_atual == 2) {
+        num_jogadas_totais--;
     }
 
-    putchar('\n');
+    printf("# %i PL%i  ", num_jogadas_totais, obter_jogador_atual(e));
+
+    printf("(%i)", obter_numero_de_jogadas_do_jogador_atual(e));
+
+    printf(" > ");
+}
+
+void imprimir_movs(ESTADO *e){
+    int num_jogadas = obter_numero_de_jogadas(e);
+
+    for (int i = 0; i<num_jogadas; i++){
+        printf("%02d: ", i + 1);
+        JOGADA jogada = e->jogadas[i];
+        printf("%c%c ",jogada.jogador1.coluna + 'a', jogada.jogador1.linha + '1');
+
+        if ( i != num_jogadas - 1 || e->jogador_atual == 1) {
+            printf("%c%c ",jogada.jogador2.coluna + 'a', jogada.jogador2.linha + '1');
+        }
+
+        putchar('\n');
+    }
 }
 
 int interpretador(ESTADO *e) {
@@ -68,13 +65,20 @@ int interpretador(ESTADO *e) {
         }
 
         if (strcmp(linha, "gr\n") == 0) {
-            imprimirTabuleiro(e);
+            imprimir_tabuleiro(e);
         }
 
         if (strcmp(linha, "ler\n") == 0) {
             lerTabuleiro(e);
 
             mostrar_tabuleiro(e, -1);
+        }
+
+        if (strcmp(linha, "movs\n") == 0){
+            imprimir_movs(e);
+
+            mostrar_tabuleiro(e, -1);
+
         }
 
         if(strlen(linha) == 3 && sscanf(linha, "%[a-h]%[1-8]", col, lin) == 2) {

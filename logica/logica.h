@@ -53,6 +53,6 @@ int jogadaValida(ESTADO * estado, COORDENADA c);
 */
 int jogadorVencedor (ESTADO *estado);
 
-int imprimirTabuleiro (ESTADO *estado);
+int imprimir_tabuleiro (ESTADO *estado);
 
 int lerTabuleiro (ESTADO *estado);
