@@ -69,9 +69,11 @@ typedef struct {
     COORDENADA ultima_jogada;
     JOGADAS jogadas;
     int num_jogadas;
+    int num_jogadas_totais;
     int num_jogadas_jogador1;
     int num_jogadas_jogador2;
     int jogador_atual;
+    int num_comandos;
 } ESTADO;
 
 
@@ -108,3 +110,9 @@ int obter_numero_de_jogadas(ESTADO *estado);
 
 int obter_numero_de_jogadas_do_jogador_atual(ESTADO *estado);
 
+
+int obter_numero_de_comandos(ESTADO *estado);
+
+void incrementar_numero_de_comandos(ESTADO *estado);
+
+int retomar_tabuleiro_na_jogada(ESTADO *e, int x);

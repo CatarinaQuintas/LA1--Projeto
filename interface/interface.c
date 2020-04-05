@@ -6,13 +6,12 @@
 
 
 
-void mostrar_tabuleiro(ESTADO *e, int jogadorVencedor) {
+void mostrar_tabuleiro(ESTADO *e, int jogadorVencedor ) {
 
-
-for (int i = 0; i < LINE_SIZE; i++) {
+for (int i = LINE_SIZE-1 ; i >= 0; i--) {
         for (int j = 0; j < LINE_SIZE; j++) {
             if (j == 0) {
-                printf("%i", i + 1);
+                printf("%i", i + 1 );
                 putchar(' ');
             }
 
@@ -24,64 +23,102 @@ for (int i = 0; i < LINE_SIZE; i++) {
 
     printf("%s\n", "  abcdefgh");
 
-    int num_jogadas_totais = obter_numero_de_jogadas(e) * 2;
+    printf("# %02d PL%i  ", obter_numero_de_comandos(e), obter_jogador_atual(e));
 
-    if(e->jogador_atual == 2) {
-        num_jogadas_totais--;
+    printf("(%i)", obter_numero_de_jogadas_do_jogador_atual(e));
+
+    printf(" > ");
+
+
+}
+
+
+void imprimir_movs(ESTADO *e){
+    int num_jogadas = obter_numero_de_jogadas(e);
+
+    for (int i = 0; i<=num_jogadas; i++){
+
+        JOGADA jogada = e->jogadas[i];
+
+       
+        if (i != num_jogadas || e->jogador_atual == 2) {
+             printf("%02d: ", i + 1);
+            printf("%c%c ", jogada.jogador1.coluna + 'a', jogada.jogador1.linha + '1');
+            
+        }
+        if ( i != num_jogadas ) {
+            printf("%c%c ",jogada.jogador2.coluna + 'a', jogada.jogador2.linha + '1');
+        }
+
+        putchar('\n');
     }
 
-    printf("# %i PL%i  ", num_jogadas_totais, obter_jogador_atual(e));
+    printf("# %02d PL%i  ", obter_numero_de_comandos(e), obter_jogador_atual(e));
 
     printf("(%i)", obter_numero_de_jogadas_do_jogador_atual(e));
 
     printf(" > ");
 }
 
-void imprimir_movs(ESTADO *e){
-    int num_jogadas = obter_numero_de_jogadas(e);
+ void jogadas_anteriores( ESTADO *e, int x ){
 
-    for (int i = 0; i<num_jogadas; i++){
-        printf("%02d: ", i + 1);
-        JOGADA jogada = e->jogadas[i];
-        printf("%c%c ",jogada.jogador1.coluna + 'a', jogada.jogador1.linha + '1');
+    int result = retomar_tabuleiro_na_jogada(e,x);
 
-        if ( i != num_jogadas - 1 || e->jogador_atual == 1) {
-            printf("%c%c ",jogada.jogador2.coluna + 'a', jogada.jogador2.linha + '1');
-        }
-
-        putchar('\n');
+    if (result == 1){
+        printf("Não é possível voltar a essa posição\n");
     }
 }
+
+
 
 int interpretador(ESTADO *e) {
     while (1) {
         char linha[BUF_SIZE];
         char col[2], lin[2];
+        char pos[2];
         if(fgets(linha, BUF_SIZE, stdin) == NULL)
             return 0;
 
         if (strcmp(linha, "Q\n") == 0) {
+            incrementar_numero_de_comandos(e);
             break;
         }
 
         if (strcmp(linha, "gr\n") == 0) {
+            incrementar_numero_de_comandos(e);
+
             imprimir_tabuleiro(e);
+
+            mostrar_tabuleiro(e, -1);
         }
 
         if (strcmp(linha, "ler\n") == 0) {
+            incrementar_numero_de_comandos(e);
             lerTabuleiro(e);
 
-            mostrar_tabuleiro(e, -1);
+
         }
 
         if (strcmp(linha, "movs\n") == 0){
-            imprimir_movs(e);
+            incrementar_numero_de_comandos(e);
 
-            mostrar_tabuleiro(e, -1);
+            imprimir_movs(e);
 
         }
 
+       if (sscanf(linha, "pos %[0-32]\n", pos) == 1){
+           incrementar_numero_de_comandos(e);
+
+           jogadas_anteriores(e, *pos - '0');
+           //imprimir_tabuleiro(e);
+           mostrar_tabuleiro(e, -1);
+        }
+
+
+
         if(strlen(linha) == 3 && sscanf(linha, "%[a-h]%[1-8]", col, lin) == 2) {
+            incrementar_numero_de_comandos(e);
+
             COORDENADA coord = {*col - 'a', *lin - '1'};
 
             if (jogadaValida(e, coord) == 0) {

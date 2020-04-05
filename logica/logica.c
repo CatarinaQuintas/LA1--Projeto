@@ -23,9 +23,9 @@ int jogadaValida(ESTADO * estado, COORDENADA c) {
 }
 
 int jogadorVencedor (ESTADO *estado){
-    if (estado->tab[7][0] == BRANCA) {
+    if (estado->tab[0][0] == BRANCA) {
         return 1;
-    } else if (estado->tab[0][7] == BRANCA){
+    } else if (estado->tab[7][7] == BRANCA){
         return 2;
     } else {
         return -1;
@@ -37,12 +37,12 @@ int imprimir_tabuleiro (ESTADO *estado) {
 
     fp = fopen("tabuleiro.txt", "w");
 
-    for(int i=0; i < LINE_SIZE; i++) {
+    for(int i=LINE_SIZE-1; i >= 0; i--) {
         for(int j=0; j < LINE_SIZE; j++) {
-            if (i==0 && j==7) {
+           if (i==7 && j==7) {
                 fputs("2", fp);
             }
-            else if (i==7 && j==0) {
+            else if (i==0 && j==0) {
                 fputs("1", fp);
             }
             else if (estado->tab[i][j] == VAZIO) {
@@ -59,6 +59,20 @@ int imprimir_tabuleiro (ESTADO *estado) {
         fputs("\n", fp);
     }
 
+    int num_jogadas = obter_numero_de_jogadas(estado);
+
+    for (int i = 0; i<=num_jogadas; i++){
+        fprintf(fp,"%02d: ", i + 1);
+        JOGADA jogada = estado->jogadas[i];
+        fprintf(fp, "%c%c ",jogada.jogador1.coluna + 'a', jogada.jogador1.linha + '1');
+
+        if ( i != num_jogadas || estado->jogador_atual == 1) {
+            fprintf(fp, "%c%c ",jogada.jogador2.coluna + 'a', jogada.jogador2.linha + '1');
+        }
+
+        fputs("\n",fp);
+    }
+
     fclose(fp);
 
     return 1;
@@ -72,7 +86,7 @@ int lerTabuleiro (ESTADO *estado) {
     FILE *file;
     file = fopen("tabuleiro.txt", "r");
 
-    int q = 0;
+    int q = 7;
 
     if (file) {
         while ((read = getline(&line, &len, file)) != -1) {
