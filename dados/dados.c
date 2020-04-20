@@ -1,6 +1,7 @@
 #include "dados.h"
 #include <stdlib.h>
 
+
 void inicializar_tabuleiro(ESTADO *e){
     for (int i=0; i<LINE_SIZE; i++){
         for (int j=0; j<LINE_SIZE; j++){
@@ -100,11 +101,11 @@ int retomar_tabuleiro_na_jogada(ESTADO *e, int x){
     else{
         e->jogador_atual = 1;
         e->num_jogadas = x;
-        e->num_jogadas_jogador1 = x + 1;
-        e->num_jogadas_jogador2 = x + 1;
+        //e->num_jogadas_jogador1 = x + 1;
+        //e->num_jogadas_jogador2 = x + 1;
 
         inicializar_tabuleiro(e);
-        inicializar_jogadores(e);
+
         inicializar_branca(e);
 
         for (int j=0; j<x; j++){
@@ -125,6 +126,17 @@ int retomar_tabuleiro_na_jogada(ESTADO *e, int x){
 
     return result;
 }
+
+int testa_livre(ESTADO *e, int linha, int coluna){
+    CASA casa = e->tab[linha][coluna];
+
+    return (casa == VAZIO || casa == UM || casa == DOIS);
+}
+
+
+
+
+
 
 
 

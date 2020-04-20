@@ -1,6 +1,9 @@
 #include "interface.h"
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
+#include <zconf.h>
+#include <time.h>
 
 #define BUF_SIZE 1024
 
@@ -70,6 +73,51 @@ void imprimir_movs(ESTADO *e){
 }
 
 
+LISTA jogadas_possiveis(ESTADO *e){
+    LISTA L = coordenadas_vizinhas_livres(e);
+
+    /*
+    for(LISTA T = L; !lista_esta_vazia(T); T = proximo(T)) {
+        // Vai buscar a cabeça da lista
+        // Passa do tipo genérico void * para char *
+        COORDENADA* cabeca =  devolve_cabeca(T);
+        printf("%c%c ", cabeca->coluna + 'a',  cabeca->linha+ '1' );
+    }*/
+
+    return L;
+}
+
+void fazer_jogada_aleatoria(ESTADO *e){
+
+    jogar_aleatorio(e);
+
+    if (jogadorVencedor(e) == 1) {
+        mostrar_tabuleiro(e, 1);
+        printf("Jogador 1 venceu, parabéns!! \n");
+    } else if (jogadorVencedor(e) == 2) {
+        mostrar_tabuleiro(e, 2);
+
+        printf("Jogador 2 venceu, parabéns!! \n");
+    }
+
+}
+
+void fazer_jogada_euclidiana(ESTADO *e){
+
+    jogar_euclidiana(e);
+
+    if (jogadorVencedor(e) == 1) {
+        mostrar_tabuleiro(e, 1);
+        printf("Jogador 1 venceu, parabéns!! \n");
+    } else if (jogadorVencedor(e) == 2) {
+        mostrar_tabuleiro(e, 2);
+
+        printf("Jogador 2 venceu, parabéns!! \n");
+    }
+
+}
+
+
 
 int interpretador(ESTADO *e) {
     while (1) {
@@ -84,6 +132,12 @@ int interpretador(ESTADO *e) {
             break;
         }
 
+        if  ( strcmp(linha, "jog\n") == 0){
+            fazer_jogada_euclidiana(e);
+            incrementar_numero_de_comandos(e);
+            mostrar_tabuleiro(e, -1);
+
+        }
         if (strcmp(linha, "gr\n") == 0) {
             incrementar_numero_de_comandos(e);
 
@@ -113,6 +167,7 @@ int interpretador(ESTADO *e) {
            //imprimir_tabuleiro(e);
            mostrar_tabuleiro(e, -1);
         }
+
 
 
 

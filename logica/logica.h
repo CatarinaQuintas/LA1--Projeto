@@ -5,6 +5,7 @@
 
 
 #include "../dados/dados.h"
+#include "lista.h"
 
 #ifndef LAB1_LOGICA_H
 #define LAB1_LOGICA_H
@@ -56,3 +57,9 @@ int jogadorVencedor (ESTADO *estado);
 int imprimir_tabuleiro (ESTADO *estado);
 
 int lerTabuleiro (ESTADO *estado);
+
+LISTA coordenadas_vizinhas_livres(ESTADO *e);
+
+void jogar_aleatorio(ESTADO *e);
+
+void jogar_euclidiana(ESTADO *e);

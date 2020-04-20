@@ -4,7 +4,6 @@
  */
 
 
-
 #ifndef LAB1_DADOS_H
 #define LAB1_DADOS_H
 
@@ -116,3 +115,5 @@ int obter_numero_de_comandos(ESTADO *estado);
 void incrementar_numero_de_comandos(ESTADO *estado);
 
 int retomar_tabuleiro_na_jogada(ESTADO *e, int x);
+
+int testa_livre(ESTADO *e, int linha, int coluna);

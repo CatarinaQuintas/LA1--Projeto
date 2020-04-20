@@ -2,6 +2,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <zconf.h>
+#include <time.h>
+#include <math.h>
 
 int jogar(ESTADO *e, COORDENADA c) {
     mudar_estado(e,c);
@@ -111,5 +114,151 @@ int lerTabuleiro (ESTADO *estado) {
         }
 
         fclose(file);
+    }
+}
+
+LISTA adiciona_coordenada_lista(LISTA L, int linha, int coluna){
+    COORDENADA * c =  malloc(sizeof(COORDENADA));
+    c->linha = linha;
+    c->coluna = coluna;
+    return insere_cabeca(L, c);
+}
+
+LISTA coordenadas_vizinhas_livres(ESTADO *e){
+    COORDENADA c = e->ultima_jogada;
+
+    LISTA l = criar_lista();
+
+    if(c.coluna - 1 >= 0){
+        if (testa_livre(e, c.linha, c.coluna-1)){
+            l = adiciona_coordenada_lista(l, c.linha, c.coluna-1);
+        }
+
+        if (c.linha -1 >= 0){
+            if (testa_livre(e, c.linha-1, c.coluna-1)){
+                l = adiciona_coordenada_lista(l, c.linha-1, c.coluna-1);
+            }
+        }
+
+        if (c.linha + 1 <= 7){
+            if (testa_livre(e, c.linha +1, c.coluna-1)){
+                l = adiciona_coordenada_lista(l, c.linha+1, c.coluna-1);
+            }
+        }
+    }
+
+    if(c.coluna + 1 <=7){
+        if (testa_livre(e, c.linha, c.coluna+1)){
+            l = adiciona_coordenada_lista(l, c.linha, c.coluna+1);
+        }
+
+        if (c.linha - 1 >= 0){
+            if (testa_livre(e, c.linha-1, c.coluna+1)){
+                l = adiciona_coordenada_lista(l, c.linha-1, c.coluna+1);
+            }
+        }
+
+        if (c.linha + 1 <= 7){
+            if (testa_livre(e, c.linha+1, c.coluna+1)){
+                l = adiciona_coordenada_lista(l, c.linha+1, c.coluna+1);
+            }
+        }
+    }
+
+    if (c.linha +1 <=7){
+        if (testa_livre(e, c.linha +1, c.coluna)){
+            l = adiciona_coordenada_lista(l, c.linha+1, c.coluna);
+        }
+    }
+
+    if (c.linha -1 >=0){
+        if (testa_livre(e, c.linha-1, c.coluna)){
+            l = adiciona_coordenada_lista(l, c.linha-1, c.coluna);
+        }
+    }
+
+
+    return l;
+}
+
+int distancia_coordenadas(COORDENADA c1, COORDENADA c2){
+    int dist1 = (c1.coluna-c2.coluna);
+    int dist2 = (c1.linha-c2.linha);
+    int dist = dist1 * dist1 + dist2 * dist2;
+    return dist;
+}
+
+void jogar_euclidiana(ESTADO *e){
+
+    COORDENADA alvo;
+    int i = obter_jogador_atual(e);
+    if (i == 1){
+         alvo = (COORDENADA) {0,0};
+    }
+    else {
+         alvo  = (COORDENADA) {7,7};
+    }
+
+    LISTA L = coordenadas_vizinhas_livres(e);
+
+
+    if (L != NULL) {
+        COORDENADA *cabeca = devolve_cabeca(L);
+
+        COORDENADA min_coordenada = {cabeca->coluna, cabeca->linha};
+
+        int min_distancia = distancia_coordenadas(alvo, min_coordenada);
+
+        free(cabeca);
+
+
+        for(LISTA T = remove_cabeca(L); !lista_esta_vazia(T); T = remove_cabeca(T)) {
+             cabeca = (COORDENADA*) devolve_cabeca(T);
+
+            int distancia = distancia_coordenadas(alvo, *cabeca);
+
+
+            if (distancia < min_distancia) {
+                min_coordenada = (COORDENADA){cabeca->coluna, cabeca->linha};
+                min_distancia = distancia;
+            }
+
+            free(cabeca);
+        }
+
+        jogar(e, min_coordenada);
+    }
+
+}
+
+void jogar_aleatorio(ESTADO *e){
+    LISTA L = coordenadas_vizinhas_livres(e);
+
+    int comprimento = 0;
+
+    for(LISTA T = L; !lista_esta_vazia(T); T = proximo(T)) {
+        comprimento ++;
+    }
+
+    time_t t;
+    srand((unsigned) time(&t));
+
+    int escolha = rand() % comprimento;
+
+    int percorrido = 0;
+    for(LISTA T = L; !lista_esta_vazia(T); T = remove_cabeca(T)) {
+        COORDENADA* cabeca = devolve_cabeca(T);
+
+        if (escolha == percorrido){
+            COORDENADA c = {cabeca->coluna, cabeca->linha};
+            jogar(e, c);
+
+        }
+
+        free(cabeca);
+
+
+
+        percorrido ++;
     }
 }
