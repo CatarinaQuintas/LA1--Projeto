@@ -4,7 +4,7 @@
 #include <string.h>
 #include <zconf.h>
 #include <time.h>
-#include <math.h>
+
 
 int jogar(ESTADO *e, COORDENADA c) {
     mudar_estado(e,c);
@@ -30,15 +30,18 @@ int jogadorVencedor (ESTADO *estado){
         return 1;
     } else if (estado->tab[7][7] == BRANCA){
         return 2;
-    } else {
-        return -1;
+    } else if (coordenadas_vizinhas_livres(estado) == NULL) {
+        return 2/estado->jogador_atual;
+    }
+    else{
+          return -1;
     }
 }
 
-int imprimir_tabuleiro (ESTADO *estado) {
+int imprimir_tabuleiro (ESTADO *estado, char* file_name) {
     FILE *fp;
 
-    fp = fopen("tabuleiro.txt", "w");
+    fp = fopen(file_name, "w");
 
     for(int i=LINE_SIZE-1; i >= 0; i--) {
         for(int j=0; j < LINE_SIZE; j++) {
@@ -62,18 +65,27 @@ int imprimir_tabuleiro (ESTADO *estado) {
         fputs("\n", fp);
     }
 
+    fputs("\n", fp);
     int num_jogadas = obter_numero_de_jogadas(estado);
 
     for (int i = 0; i<=num_jogadas; i++){
-        fprintf(fp,"%02d: ", i + 1);
-        JOGADA jogada = estado->jogadas[i];
-        fprintf(fp, "%c%c ",jogada.jogador1.coluna + 'a', jogada.jogador1.linha + '1');
 
-        if ( i != num_jogadas || estado->jogador_atual == 1) {
+        JOGADA jogada = estado->jogadas[i];
+
+
+        if (i != num_jogadas || estado->jogador_atual == 2) {
+            fprintf(fp, "%02d: ", i + 1);
+            fprintf(fp, "%c%c ", jogada.jogador1.coluna + 'a', jogada.jogador1.linha + '1');
+
+        }
+        if ( i != num_jogadas ) {
             fprintf(fp, "%c%c ",jogada.jogador2.coluna + 'a', jogada.jogador2.linha + '1');
         }
 
-        fputs("\n",fp);
+
+        if (i != num_jogadas || estado->jogador_atual == 2) {
+            fputs("\n",fp);
+        }
     }
 
     fclose(fp);
@@ -81,41 +93,80 @@ int imprimir_tabuleiro (ESTADO *estado) {
     return 1;
 }
 
-int lerTabuleiro (ESTADO *estado) {
-    char * line = NULL;
+void lerTabuleiro (ESTADO *estado, char* file_name) {
+    char *line = NULL;
     size_t len = 0;
     ssize_t read;
 
     FILE *file;
-    file = fopen("tabuleiro.txt", "r");
-
+    file = fopen(file_name, "r");
     int q = 7;
-
     if (file) {
-        while ((read = getline(&line, &len, file)) != -1) {
-            for (int i = 0; i < strlen(line); i++) {
-                if (line[i] == '.') {
-                    estado->tab[q][i] = VAZIO;
-                } else if (line[i] == '*') {
-                    estado->tab[q][i] = BRANCA;
+        for ( int j= 0; j < LINE_SIZE; j++){
+            if ((read = getline(&line, &len, file)) != -1){
 
-                    COORDENADA coord = {i, q};
-                    estado->ultima_jogada = coord;
-                } else if (line[i] == '#') {
-                    estado->tab[q][i] = PRETA;
-                } else if (line[i] == '2') {
-                    estado->tab[q][i] = DOIS;
-                } else if (line[i] == '1') {
-                    estado->tab[q][i] = UM;
+                for (int i = 0; i < (int) len; i++) {
+                    if (line[i] == '.') {
+                        estado->tab[q][i] = VAZIO;
+                    } else if (line[i] == '*') {
+                        estado->tab[q][i] = BRANCA;
+
+                        COORDENADA coord = {i, q};
+                        estado->ultima_jogada = coord;
+                    } else if (line[i] == '#') {
+                        estado->tab[q][i] = PRETA;
+                    } else if (line[i] == '2') {
+                        estado->tab[q][i] = DOIS;
+                    } else if (line[i] == '1') {
+                        estado->tab[q][i] = UM;
+                    }
                 }
+                q = q - 1;
             }
+        }
 
-            q = q+1;
+        if((read = getline(&line, &len, file)) != -1 && strcmp(line, "\n") == 0){
+            estado->num_jogadas_jogador1 = 1;
+            estado->num_jogadas_jogador2 = 1;
+            estado->num_jogadas = 0;
+            estado->num_jogadas_totais = 0;
+            estado->jogador_atual = 1;
+
+            while((read = getline(&line, &len, file)) != -1 && strcmp(line, "\n") != 0){
+
+                int nr_jogada;
+                sscanf(line, "%02d: ", &nr_jogada);
+
+                JOGADA *jogada = &(estado->jogadas[nr_jogada - 1]);
+
+                char col[2], lin[2];
+                if (sscanf(line + 4, "%[a-h]%[1-8]", col, lin ) == 2){
+                    jogada->jogador1.coluna = *col - 'a';
+                    jogada->jogador1.linha = *lin - '1';
+
+                    estado->num_jogadas_jogador1++;
+                    estado->jogador_atual = 2;
+                }
+
+
+                if (sscanf(line + 7, " %[a-h]%[1-8]",col, lin) == 2){
+                    jogada->jogador2.coluna = *col - 'a';
+                    jogada->jogador2.linha = *lin - '1';
+
+                    estado->num_jogadas_jogador2++;
+                    estado->num_jogadas++;
+                    estado->num_jogadas_totais++;
+                    estado->jogador_atual = 1;
+                }
+
+            }
         }
 
         fclose(file);
     }
 }
+
+
 
 LISTA adiciona_coordenada_lista(LISTA L, int linha, int coluna){
     COORDENADA * c =  malloc(sizeof(COORDENADA));

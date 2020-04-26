@@ -3,9 +3,8 @@
  */
 
 
-
 #include "../dados/dados.h"
-#include "lista.h"
+#include "../listas/listas.h"
 
 #ifndef LAB1_LOGICA_H
 #define LAB1_LOGICA_H
@@ -54,9 +53,9 @@ int jogadaValida(ESTADO * estado, COORDENADA c);
 */
 int jogadorVencedor (ESTADO *estado);
 
-int imprimir_tabuleiro (ESTADO *estado);
+int imprimir_tabuleiro (ESTADO *estado, char* file_name);
 
-int lerTabuleiro (ESTADO *estado);
+void lerTabuleiro (ESTADO *estado, char* file_name);
 
 LISTA coordenadas_vizinhas_livres(ESTADO *e);
 

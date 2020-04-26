@@ -25,7 +25,7 @@
 * Na coordenada (7,0), o jogador vencedor é o 1 e assim  o estado muda para branca, senao mostra '1'.
 * @return Tabuleiro.
 */
-void mostrar_tabuleiro(ESTADO *estado, int jogadorVencedor);
+void mostrar_tabuleiro(ESTADO *estado);
 
 
 
@@ -38,3 +38,6 @@ void mostrar_tabuleiro(ESTADO *estado, int jogadorVencedor);
 * O comando Q termina o jogo.
 */
 int interpretador(ESTADO *e);
+
+
+void fazer_jogada_euclidiana(ESTADO *e);

@@ -9,7 +9,7 @@
 
 
 
-void mostrar_tabuleiro(ESTADO *e, int jogadorVencedor ) {
+void mostrar_tabuleiro(ESTADO *e) {
 
 for (int i = LINE_SIZE-1 ; i >= 0; i--) {
         for (int j = 0; j < LINE_SIZE; j++) {
@@ -45,15 +45,18 @@ void imprimir_movs(ESTADO *e){
 
        
         if (i != num_jogadas || e->jogador_atual == 2) {
-             printf("%02d: ", i + 1);
-            printf("%c%c ", jogada.jogador1.coluna + 'a', jogada.jogador1.linha + '1');
-            
+            printf("%02d: ", i + 1);
+            printf("%c%c", jogada.jogador1.coluna + 'a', jogada.jogador1.linha + '1');
+
         }
         if ( i != num_jogadas ) {
-            printf("%c%c ",jogada.jogador2.coluna + 'a', jogada.jogador2.linha + '1');
+            printf(" %c%c",jogada.jogador2.coluna + 'a', jogada.jogador2.linha + '1');
         }
 
-        putchar('\n');
+        if (i != num_jogadas || e->jogador_atual == 2) {
+            putchar('\n');
+        }
+
     }
 
     printf("# %02d PL%i  ", obter_numero_de_comandos(e), obter_jogador_atual(e));
@@ -87,34 +90,30 @@ LISTA jogadas_possiveis(ESTADO *e){
     return L;
 }
 
+int testa_vencedor(ESTADO *e){
+    int jog_vencedor = jogadorVencedor(e);
+    if (jog_vencedor == 1) {
+        mostrar_tabuleiro(e);
+        printf("Jogador 1 venceu, parabéns!! \n");
+        return 1;
+
+    } else if (jog_vencedor == 2) {
+        mostrar_tabuleiro(e);
+        printf("Jogador 2 venceu, parabéns!! \n");
+        return 2;
+    }
+    return 0;
+}
+
 void fazer_jogada_aleatoria(ESTADO *e){
 
     jogar_aleatorio(e);
-
-    if (jogadorVencedor(e) == 1) {
-        mostrar_tabuleiro(e, 1);
-        printf("Jogador 1 venceu, parabéns!! \n");
-    } else if (jogadorVencedor(e) == 2) {
-        mostrar_tabuleiro(e, 2);
-
-        printf("Jogador 2 venceu, parabéns!! \n");
-    }
 
 }
 
 void fazer_jogada_euclidiana(ESTADO *e){
 
     jogar_euclidiana(e);
-
-    if (jogadorVencedor(e) == 1) {
-        mostrar_tabuleiro(e, 1);
-        printf("Jogador 1 venceu, parabéns!! \n");
-    } else if (jogadorVencedor(e) == 2) {
-        mostrar_tabuleiro(e, 2);
-
-        printf("Jogador 2 venceu, parabéns!! \n");
-    }
-
 }
 
 
@@ -127,75 +126,79 @@ int interpretador(ESTADO *e) {
         if(fgets(linha, BUF_SIZE, stdin) == NULL)
             return 0;
 
-        if (strcmp(linha, "Q\n") == 0) {
+        else if (strcmp(linha, "Q\n") == 0) {
             incrementar_numero_de_comandos(e);
             break;
         }
 
-        if  ( strcmp(linha, "jog\n") == 0){
+        else if  ( strcmp(linha, "jog\n") == 0){
+            fazer_jogada_aleatoria(e);
+            if (testa_vencedor(e) != 0){
+                break;
+            }
+            incrementar_numero_de_comandos(e);
+            mostrar_tabuleiro(e);
+        }
+       else if  ( strcmp(linha, "jog2\n") == 0){
             fazer_jogada_euclidiana(e);
+            if (testa_vencedor(e) != 0){
+                break;
+            }
             incrementar_numero_de_comandos(e);
-            mostrar_tabuleiro(e, -1);
-
-        }
-        if (strcmp(linha, "gr\n") == 0) {
-            incrementar_numero_de_comandos(e);
-
-            imprimir_tabuleiro(e);
-
-            mostrar_tabuleiro(e, -1);
+            mostrar_tabuleiro(e);
         }
 
-        if (strcmp(linha, "ler\n") == 0) {
+        else if (strcmp(linha, "gr\n") == 0) {
             incrementar_numero_de_comandos(e);
-            lerTabuleiro(e);
-
-
+            imprimir_tabuleiro(e, "tabuleiro.txt");
+            mostrar_tabuleiro(e);
         }
 
-        if (strcmp(linha, "movs\n") == 0){
+
+        else if (strcmp(linha, "ler\n") == 0) {
+            incrementar_numero_de_comandos(e);
+            lerTabuleiro(e, "tabuleiro.txt");
+            mostrar_tabuleiro(e);
+        }
+
+        else if (strcmp(linha, "movs\n") == 0){
             incrementar_numero_de_comandos(e);
 
             imprimir_movs(e);
 
         }
 
-       if (sscanf(linha, "pos %[0-32]\n", pos) == 1){
+       else if (sscanf(linha, "pos %s\n", pos) == 1){
            incrementar_numero_de_comandos(e);
 
            jogadas_anteriores(e, *pos - '0');
            //imprimir_tabuleiro(e);
-           mostrar_tabuleiro(e, -1);
+           mostrar_tabuleiro(e);
         }
 
 
 
 
-        if(strlen(linha) == 3 && sscanf(linha, "%[a-h]%[1-8]", col, lin) == 2) {
+        else if(strlen(linha) == 3 && sscanf(linha, "%[a-h]%[1-8]", col, lin) == 2) {
             incrementar_numero_de_comandos(e);
 
             COORDENADA coord = {*col - 'a', *lin - '1'};
 
             if (jogadaValida(e, coord) == 0) {
-                printf("Jogada inválida, tente novamente: \n");
-                interpretador(e);
-                return 1;
+                printf("Jogada inválida \n");
+                if(obter_jogador_atual(e)==1) {
+                    printf("Jogador 2 venceu, parabéns!! \n");
+                }else { printf("Jogador 1 venceu, parabéns!! \n"); }
+                 break;
             }
 
             jogar(e, coord);
 
-            if (jogadorVencedor(e) == 1) {
-                mostrar_tabuleiro(e, 1);
-                printf("Jogador 1 venceu, parabéns!! \n");
-                break;
-            } else if (jogadorVencedor(e) == 2) {
-                mostrar_tabuleiro(e, 2);
-
-                printf("Jogador 2 venceu, parabéns!! \n");
+            if (testa_vencedor(e) != 0){
                 break;
             }
 
-            mostrar_tabuleiro(e, -1);
+            mostrar_tabuleiro(e);
         }  else if(strlen(linha) == 2) {
 
         }
@@ -203,3 +206,4 @@ int interpretador(ESTADO *e) {
 
     return 1;
 }
+

@@ -80,7 +80,7 @@ int obter_numero_de_jogadas(ESTADO *e){
 
 int obter_numero_de_jogadas_do_jogador_atual(ESTADO *e){
     if (e->jogador_atual == 1) return e->num_jogadas_jogador1;
-    if (e->jogador_atual == 2) return e->num_jogadas_jogador2;
+    else return e->num_jogadas_jogador2;
 }
 
 int obter_numero_de_comandos(ESTADO *e){
