@@ -8,15 +8,18 @@
  
  
  ### Guião 5
- **Beatriz**       - Implementação da função jogar 
-                   - Implementação da função que mostrar o tabuleiro
+ **Beatriz**       
+ - Implementação da função jogar 
+ - Implementação da função que mostrar o tabuleiro
 
-  **Catarina**      Implementação a função inicializa o estado
-                    Implementação da função inicializa o tabuleiro 
-                    Implementação da função que muda o estado do jogo 
+  **Catarina**      
+  -Implementação a função inicializa o estado
+  -Implementação da função inicializa o tabuleiro 
+  -Implementação da função que muda o estado do jogo 
  
-  **Inês**          Implementação da função que inicializa os jogadores
-                    Implementação da função inicializa a peça branca
+  **Inês**         
+  Implementação da função que inicializa os jogadores
+ Implementação da função inicializa a peça branca
                   
    
    
