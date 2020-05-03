@@ -98,7 +98,7 @@
  - Implementar a função fazer jogada euclidiana 
 
  _**Inês**_           
- - Implementar o comando “jog02” no interpretador
+ - Implementar o comando “jog2” no interpretador
  - Implementação do bot 
 
 
