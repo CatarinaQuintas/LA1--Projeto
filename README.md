@@ -10,8 +10,9 @@
  ###### Guião 5
  Criação dos módulos: dados, interface e lógica 
 
-  **Beatriz**       Implementação da função jogar 
-                    Implementação da função que mostrar o tabuleiro
+ **Beatriz**       
+ Implementação da função jogar 
+ Implementação da função que mostrar o tabuleiro
 
   **Catarina**      Implementação a função inicializa o estado
                     Implementação da função inicializa o tabuleiro 
