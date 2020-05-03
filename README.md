@@ -7,7 +7,7 @@
  - **A91662** Inês Maria Fernandes Martins 
  
  
- ###### Guião 5
+ ### Guião 5
  Criação dos módulos: dados, interface e lógica 
 
  **Beatriz**       
@@ -22,7 +22,7 @@
                     Implementação da função inicializa a peça branca
                   
                   
-  #### Guião 6
+  ### Guião 6
   **Beatriz**       Implementação da função obter o número de jogadas por jogador 
                     Implementação da função jogador vencedor
                     Definição da função interpretador 
@@ -35,7 +35,7 @@
                     Implementação da função que obtém o jogador atual 
                     
   
-  #### Guião 7                  
+  ### Guião 7                  
   **Beatriz**       Implementação da função imprimir o tabuleiro
 
   **Catarina**      Implementação da função ler tabuleiro 
@@ -43,7 +43,7 @@
   **Inês**          Implementação da função Imprimir movs  
                     Implementar o comando “movs” no interpretador 
 
- #### Guião 8
+ ### Guião 8
  **Beatriz**        Implementação da função retomar tabuleiro na jogada 
 
  **Catarina**       Implementação da função jogadas anteriores 
@@ -52,7 +52,7 @@
  **Inês**           Implementar o comando “pos”  no interpretador.
                     Implementação da função retomar tabuleiro na jogada 
                     
- #### Guião 9                   
+ ### Guião 9                   
  **Beatriz**       Criação do modulo listas 
                    Definir o tipo listas 
                    Implementação da função jogar aleatório
@@ -68,7 +68,7 @@
                    Implementação da lista coordenadas vizinhas livres 
                    Implementação da lista adiciona coordenadas à lista 
  
- #### Guião 10     
+ ### Guião 10     
  **Beatriz**        Implementação do bot 
 
  **Catarina**       Implementar a função fazer jogada euclidiana 
