@@ -1,0 +1,56 @@
+\hypertarget{interface_8h}{}\doxysection{interface/interface.h File Reference}
+\label{interface_8h}\index{interface/interface.h@{interface/interface.h}}
+{\ttfamily \#include \char`\"{}../logica/logica.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{interface_8h_a4525a57d0cd9ed3c9150e19b67e1dad6}{mostrar\+\_\+tabuleiro}} (\mbox{\hyperlink{struct_e_s_t_a_d_o}{E\+S\+T\+A\+DO}} $\ast$estado)
+\begin{DoxyCompactList}\small\item\em Função mostra o tabuleiro. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{interface_8h_a24da95ebeede4a540e37790ce8be359b}{interpretador}} (\mbox{\hyperlink{struct_e_s_t_a_d_o}{E\+S\+T\+A\+DO}} $\ast$e)
+\begin{DoxyCompactList}\small\item\em Função interpretador. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{interface_8h_af7ced6bd4160b46f4bf21e26fa145e78}{fazer\+\_\+jogada\+\_\+euclidiana}} (\mbox{\hyperlink{struct_e_s_t_a_d_o}{E\+S\+T\+A\+DO}} $\ast$e)
+\begin{DoxyCompactList}\small\item\em Função que joga euclidiana. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{interface_8h_af7ced6bd4160b46f4bf21e26fa145e78}\label{interface_8h_af7ced6bd4160b46f4bf21e26fa145e78}} 
+\index{interface.h@{interface.h}!fazer\_jogada\_euclidiana@{fazer\_jogada\_euclidiana}}
+\index{fazer\_jogada\_euclidiana@{fazer\_jogada\_euclidiana}!interface.h@{interface.h}}
+\doxysubsubsection{\texorpdfstring{fazer\_jogada\_euclidiana()}{fazer\_jogada\_euclidiana()}}
+{\footnotesize\ttfamily void fazer\+\_\+jogada\+\_\+euclidiana (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_e_s_t_a_d_o}{E\+S\+T\+A\+DO}} $\ast$}]{e }\end{DoxyParamCaption})}
+
+
+
+Função que joga euclidiana. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Estado} & Esta funcão recebe um estado. Dependendo do jogador atual, escolhe a coordenada mais próxima do 1 ou do 2 para vencer o jogo. Se o jogador atual for o 1, irá ser escolhida a cooordenada mais próxima do numero 1. Se o jogador atual for o 2, irá ser escolhida a cooordenada mais próxima do numero 2. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{interface_8h_a24da95ebeede4a540e37790ce8be359b}\label{interface_8h_a24da95ebeede4a540e37790ce8be359b}} 
+\index{interface.h@{interface.h}!interpretador@{interpretador}}
+\index{interpretador@{interpretador}!interface.h@{interface.h}}
+\doxysubsubsection{\texorpdfstring{interpretador()}{interpretador()}}
+{\footnotesize\ttfamily int interpretador (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_e_s_t_a_d_o}{E\+S\+T\+A\+DO}} $\ast$}]{e }\end{DoxyParamCaption})}
+
+
+
+Função interpretador. 
+
+Nesta função são utilizados 6 comandos\+: gr, ler e Q, movs, pos,jog, jog02 . O comando gr grava o tabuleiro num ficheiro. O comando ler vai buscar o ficheiro guardado pelo comando gr e assim o jogo tem continuidade. O comando Q termina o jogo. O comando movs apresenta os movimentos atá ao momento. O comando pos utilizado para regressar a uma jogada pretendida. O comando jog faz uma jogada aleatoria. O comando jog02 faz uma jogada usando a heurística euclidiana. \mbox{\Hypertarget{interface_8h_a4525a57d0cd9ed3c9150e19b67e1dad6}\label{interface_8h_a4525a57d0cd9ed3c9150e19b67e1dad6}} 
+\index{interface.h@{interface.h}!mostrar\_tabuleiro@{mostrar\_tabuleiro}}
+\index{mostrar\_tabuleiro@{mostrar\_tabuleiro}!interface.h@{interface.h}}
+\doxysubsubsection{\texorpdfstring{mostrar\_tabuleiro()}{mostrar\_tabuleiro()}}
+{\footnotesize\ttfamily void mostrar\+\_\+tabuleiro (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_e_s_t_a_d_o}{E\+S\+T\+A\+DO}} $\ast$}]{estado }\end{DoxyParamCaption})}
+
+
+
+Função mostra o tabuleiro. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Estado} & Esta funçao recebe um Estado ( Branca, Preta ou Vazio).\\
+\hline
+\end{DoxyParams}
+Se o estado é vazio, o tabuleiro mostra \textquotesingle{}.\textquotesingle{} . Se o estado é branca, o tabuleiro mostra \textquotesingle{}$\ast$\textquotesingle{} . Se o estado é preta, o tabuleiro mostra \textquotesingle{}\#\textquotesingle{} . Na coordenada (0,7), o jogador vencedor é o 2 e assim o estado muda para branca, senao mostra \textquotesingle{}2\textquotesingle{}. Na coordenada (7,0), o jogador vencedor é o 1 e assim o estado muda para branca, senao mostra \textquotesingle{}1\textquotesingle{}. 

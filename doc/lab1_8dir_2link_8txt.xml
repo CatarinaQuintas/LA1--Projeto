@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="lab1_8dir_2link_8txt" kind="file" language="C++">
+    <compoundname>link.txt</compoundname>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="lab1_8dir_2link_8txt_1a457bff57fd118701cb232befb1bb6770" prot="public" static="no" mutable="no">
+        <type>Library Developer CommandLineTools usr bin cc g isysroot Library Developer CommandLineTools SDKs MacOSX10 sdk</type>
+        <definition>Library Developer CommandLineTools usr bin cc g isysroot Library Developer CommandLineTools SDKs MacOSX10 sdk search_paths_first Wl</definition>
+        <argsstring></argsstring>
+        <name>Wl</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cmake-build-debug/CMakeFiles/lab1.dir/link.txt" line="1" column="101" bodyfile="cmake-build-debug/CMakeFiles/lab1.dir/link.txt" bodystart="1" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal">/Library/Developer/CommandLineTools/usr/bin/cc<sp/>-g<sp/>-isysroot<sp/>/Library/Developer/CommandLineTools/SDKs/MacOSX10.14.sdk<sp/>-Wl,-search_paths_first<sp/>-Wl,-headerpad_max_install_names<sp/><sp/>CMakeFiles/lab1.dir/dados/dados.c.o<sp/>CMakeFiles/lab1.dir/interface/interface.c.o<sp/>CMakeFiles/lab1.dir/listas/listas.c.o<sp/>CMakeFiles/lab1.dir/logica/logica.c.o<sp/>CMakeFiles/lab1.dir/main.c.o<sp/><sp/>-o<sp/>lab1<sp/></highlight></codeline>
+    </programlisting>
+    <location file="cmake-build-debug/CMakeFiles/lab1.dir/link.txt"/>
+  </compounddef>
+</doxygen>

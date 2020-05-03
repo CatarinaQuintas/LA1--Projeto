@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="tabuleiro_8txt" kind="file" language="C++">
+    <compoundname>tabuleiro.txt</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal">.....*#2</highlight></codeline>
+<codeline lineno="2"><highlight class="normal">.....##.</highlight></codeline>
+<codeline lineno="3"><highlight class="normal">.######.</highlight></codeline>
+<codeline lineno="4"><highlight class="normal">######..</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">####....</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">####....</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal">........</highlight></codeline>
+<codeline lineno="8"><highlight class="normal">1.......</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal">01:<sp/>d4<sp/>d3<sp/></highlight></codeline>
+<codeline lineno="11"><highlight class="normal">02:<sp/>c3<sp/>c4<sp/></highlight></codeline>
+<codeline lineno="12"><highlight class="normal">03:<sp/>b3<sp/>a4<sp/></highlight></codeline>
+<codeline lineno="13"><highlight class="normal">04:<sp/>a3<sp/>b4<sp/></highlight></codeline>
+<codeline lineno="14"><highlight class="normal">05:<sp/>a5<sp/>b6<sp/></highlight></codeline>
+<codeline lineno="15"><highlight class="normal">06:<sp/>b5<sp/>c6<sp/></highlight></codeline>
+<codeline lineno="16"><highlight class="normal">07:<sp/>c5<sp/>d6<sp/></highlight></codeline>
+<codeline lineno="17"><highlight class="normal">08:<sp/>d5<sp/>e6</highlight></codeline>
+<codeline lineno="18"><highlight class="normal">09:<sp/>f5<sp/>g6<sp/></highlight></codeline>
+<codeline lineno="19"><highlight class="normal">10:<sp/>f6<sp/>g7<sp/></highlight></codeline>
+<codeline lineno="20"><highlight class="normal">11:<sp/>f7<sp/>g8<sp/></highlight></codeline>
+<codeline lineno="21"><highlight class="normal">12:<sp/>f8<sp/></highlight></codeline>
+    </programlisting>
+    <location file="cmake-build-debug/tabuleiro.txt"/>
+  </compounddef>
+</doxygen>

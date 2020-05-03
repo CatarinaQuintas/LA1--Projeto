@@ -1,12 +1,13 @@
+/**
+ @file logica.c
+ */
+
 #include "logica.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <zconf.h>
 #include <time.h>
-#include <math.h>
-
-#define BUF_SIZE 1024
 
 
 int jogar(ESTADO *e, COORDENADA c) {
@@ -48,7 +49,7 @@ int imprimir_tabuleiro (ESTADO *estado, char* file_name) {
 
     for(int i=LINE_SIZE-1; i >= 0; i--) {
         for(int j=0; j < LINE_SIZE; j++) {
-           if (estado->tab[i][j] == VAZIO) {
+            if (estado->tab[i][j] == VAZIO) {
                 fputs(".", fp);
             }
             else if (estado->tab[i][j] == BRANCA) {
@@ -60,9 +61,9 @@ int imprimir_tabuleiro (ESTADO *estado, char* file_name) {
             else if (i==0 && j==0) {
                 fputs("1", fp);
             }
-           else {
-               fputs("#", fp);
-           }
+            else {
+                fputs("#", fp);
+            }
         }
 
         fputs("\n", fp);
@@ -74,7 +75,6 @@ int imprimir_tabuleiro (ESTADO *estado, char* file_name) {
     for (int i = 0; i<=num_jogadas; i++){
 
         JOGADA jogada = estado->jogadas[i];
-
 
         if (i != num_jogadas || estado->jogador_atual == 2) {
             fprintf(fp, "%02d: ", i + 1);

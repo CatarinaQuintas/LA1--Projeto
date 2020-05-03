@@ -1,0 +1,202 @@
+\hypertarget{dados_8c}{}\doxysection{dados/dados.c File Reference}
+\label{dados_8c}\index{dados/dados.c@{dados/dados.c}}
+{\ttfamily \#include \char`\"{}dados.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{dados_8c_adad2b95a77bc2eba8509e60f7b87dc84}\label{dados_8c_adad2b95a77bc2eba8509e60f7b87dc84}} 
+void {\bfseries inicializar\+\_\+tabuleiro} (\mbox{\hyperlink{struct_e_s_t_a_d_o}{E\+S\+T\+A\+DO}} $\ast$e)
+\item 
+\mbox{\Hypertarget{dados_8c_a1c044dd8827df3ac96f82f7c272cc966}\label{dados_8c_a1c044dd8827df3ac96f82f7c272cc966}} 
+void {\bfseries inicializar\+\_\+branca} (\mbox{\hyperlink{struct_e_s_t_a_d_o}{E\+S\+T\+A\+DO}} $\ast$e)
+\item 
+\mbox{\Hypertarget{dados_8c_a59f7ccb657c0c9fc6267ca8792a4f7b6}\label{dados_8c_a59f7ccb657c0c9fc6267ca8792a4f7b6}} 
+void {\bfseries inicializar\+\_\+jogadores} (\mbox{\hyperlink{struct_e_s_t_a_d_o}{E\+S\+T\+A\+DO}} $\ast$e)
+\item 
+\mbox{\hyperlink{struct_e_s_t_a_d_o}{E\+S\+T\+A\+DO}} $\ast$ \mbox{\hyperlink{dados_8c_a7e0c7e26fb685d9ab501e19b05e6954f}{inicializar\+\_\+estado}} ()
+\begin{DoxyCompactList}\small\item\em Função que apresenta a inicialização do estado. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{dados_8c_a4caa880026bcc531eee0b6da180b8b9d}{mudar\+\_\+estado}} (\mbox{\hyperlink{struct_e_s_t_a_d_o}{E\+S\+T\+A\+DO}} $\ast$e, \mbox{\hyperlink{struct_c_o_o_r_d_e_n_a_d_a}{C\+O\+O\+R\+D\+E\+N\+A\+DA}} c)
+\begin{DoxyCompactList}\small\item\em Função que muda o estado. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{dados_8c_acc6c25533188a99cb69c12e7f2c406ef}{obter\+\_\+jogador\+\_\+atual}} (\mbox{\hyperlink{struct_e_s_t_a_d_o}{E\+S\+T\+A\+DO}} $\ast$e)
+\begin{DoxyCompactList}\small\item\em Função que obtem o jogador atual. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{dados_8c_abbfeab93575f20e5867482fd41a71cba}{obter\+\_\+numero\+\_\+de\+\_\+jogadas}} (\mbox{\hyperlink{struct_e_s_t_a_d_o}{E\+S\+T\+A\+DO}} $\ast$e)
+\begin{DoxyCompactList}\small\item\em Função que obtem o número de jogadas. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{dados_8c_ad8caae13c957510ffad5c07800ce9498}{obter\+\_\+numero\+\_\+de\+\_\+jogadas\+\_\+do\+\_\+jogador\+\_\+atual}} (\mbox{\hyperlink{struct_e_s_t_a_d_o}{E\+S\+T\+A\+DO}} $\ast$e)
+\begin{DoxyCompactList}\small\item\em Função que obtem o número de jogadas do jogador atual. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{dados_8c_a6bbb7ea8ebfb2e5271eef217e714defb}{obter\+\_\+numero\+\_\+de\+\_\+comandos}} (\mbox{\hyperlink{struct_e_s_t_a_d_o}{E\+S\+T\+A\+DO}} $\ast$e)
+\begin{DoxyCompactList}\small\item\em Função que obtem o número de comandos. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{dados_8c_a23f8de5ae46e42e5350402630bbe3543}{incrementar\+\_\+numero\+\_\+de\+\_\+comandos}} (\mbox{\hyperlink{struct_e_s_t_a_d_o}{E\+S\+T\+A\+DO}} $\ast$e)
+\begin{DoxyCompactList}\small\item\em Função que incrementa o numero de comandos. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{dados_8c_a7ba56142ce8672518e40f40cdba7b8af}{retomar\+\_\+tabuleiro\+\_\+na\+\_\+jogada}} (\mbox{\hyperlink{struct_e_s_t_a_d_o}{E\+S\+T\+A\+DO}} $\ast$e, int x)
+\begin{DoxyCompactList}\small\item\em Função que retoma o tabuleiro numa jogada. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{dados_8c_acffdde825ba4f9dbf5de6b9deac58f22}{testa\+\_\+livre}} (\mbox{\hyperlink{struct_e_s_t_a_d_o}{E\+S\+T\+A\+DO}} $\ast$e, int linha, int coluna)
+\begin{DoxyCompactList}\small\item\em Funão que testa uma casa livre. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{dados_8c_a23f8de5ae46e42e5350402630bbe3543}\label{dados_8c_a23f8de5ae46e42e5350402630bbe3543}} 
+\index{dados.c@{dados.c}!incrementar\_numero\_de\_comandos@{incrementar\_numero\_de\_comandos}}
+\index{incrementar\_numero\_de\_comandos@{incrementar\_numero\_de\_comandos}!dados.c@{dados.c}}
+\doxysubsubsection{\texorpdfstring{incrementar\_numero\_de\_comandos()}{incrementar\_numero\_de\_comandos()}}
+{\footnotesize\ttfamily void incrementar\+\_\+numero\+\_\+de\+\_\+comandos (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_e_s_t_a_d_o}{E\+S\+T\+A\+DO}} $\ast$}]{estado }\end{DoxyParamCaption})}
+
+
+
+Função que incrementa o numero de comandos. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Estado} & Esta funçao recebe um Estado.\\
+\hline
+\end{DoxyParams}
+Esta função é contituida por um estado. Cada vez que um comando é utilizado, o numero de comandos aumenta 1. \begin{DoxyReturn}{Returns}
+um inteiro. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dados_8c_a7e0c7e26fb685d9ab501e19b05e6954f}\label{dados_8c_a7e0c7e26fb685d9ab501e19b05e6954f}} 
+\index{dados.c@{dados.c}!inicializar\_estado@{inicializar\_estado}}
+\index{inicializar\_estado@{inicializar\_estado}!dados.c@{dados.c}}
+\doxysubsubsection{\texorpdfstring{inicializar\_estado()}{inicializar\_estado()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_e_s_t_a_d_o}{E\+S\+T\+A\+DO}}$\ast$ inicializar\+\_\+estado (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Função que apresenta a inicialização do estado. 
+
+Com esta função observamos que é o jogador 1 que começa a jogar, iniciando o tabuleiro com 0 jogadas, pois ele é o primeiro a jogar. A coordenada incial do estado branca vai ser alterada, pois o jogo vai começar, ou seja o tabuleiro vai inicializar. \begin{DoxyReturn}{Returns}
+O estado. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dados_8c_a4caa880026bcc531eee0b6da180b8b9d}\label{dados_8c_a4caa880026bcc531eee0b6da180b8b9d}} 
+\index{dados.c@{dados.c}!mudar\_estado@{mudar\_estado}}
+\index{mudar\_estado@{mudar\_estado}!dados.c@{dados.c}}
+\doxysubsubsection{\texorpdfstring{mudar\_estado()}{mudar\_estado()}}
+{\footnotesize\ttfamily int mudar\+\_\+estado (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_e_s_t_a_d_o}{E\+S\+T\+A\+DO}} $\ast$}]{e,  }\item[{\mbox{\hyperlink{struct_c_o_o_r_d_e_n_a_d_a}{C\+O\+O\+R\+D\+E\+N\+A\+DA}}}]{c }\end{DoxyParamCaption})}
+
+
+
+Função que muda o estado. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Estado} & Esta funçao recebe um Estado ( Branco ou Preta). \\
+\hline
+{\em Coordenada} & Esta funçao recebe uma cordenada ( linha e coluna). Esta função é contituída por uma coordenada, onde está a última jogada com o Estado branca. Quando fazemos uma nova jogada, essa coordenada fica com o Estado branca e a última jogada passa ao estado preta. Sempre que fazemos que nova jogada o número de jogadas aumenta 1. Se o jogador atual for o jogador1, o seu número de jogada aumenta 1 e o seguinte jogador será o jogador2. Se o jogador atual for o jogador2, o seu número de jogada aumenta 1 e o seguinte jogador será o jogador1. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+O novo estado. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dados_8c_acc6c25533188a99cb69c12e7f2c406ef}\label{dados_8c_acc6c25533188a99cb69c12e7f2c406ef}} 
+\index{dados.c@{dados.c}!obter\_jogador\_atual@{obter\_jogador\_atual}}
+\index{obter\_jogador\_atual@{obter\_jogador\_atual}!dados.c@{dados.c}}
+\doxysubsubsection{\texorpdfstring{obter\_jogador\_atual()}{obter\_jogador\_atual()}}
+{\footnotesize\ttfamily int obter\+\_\+jogador\+\_\+atual (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_e_s_t_a_d_o}{E\+S\+T\+A\+DO}} $\ast$}]{estado }\end{DoxyParamCaption})}
+
+
+
+Função que obtem o jogador atual. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Estado} & Esta funçao recebe um Estado.\\
+\hline
+\end{DoxyParams}
+Esta funçao é contituida por um estado. Se o jogador atual é o jogador1, returna 1.\+Se o jogador atual é o jogador2, returna 2. \begin{DoxyReturn}{Returns}
+um inteiro 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dados_8c_a6bbb7ea8ebfb2e5271eef217e714defb}\label{dados_8c_a6bbb7ea8ebfb2e5271eef217e714defb}} 
+\index{dados.c@{dados.c}!obter\_numero\_de\_comandos@{obter\_numero\_de\_comandos}}
+\index{obter\_numero\_de\_comandos@{obter\_numero\_de\_comandos}!dados.c@{dados.c}}
+\doxysubsubsection{\texorpdfstring{obter\_numero\_de\_comandos()}{obter\_numero\_de\_comandos()}}
+{\footnotesize\ttfamily int obter\+\_\+numero\+\_\+de\+\_\+comandos (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_e_s_t_a_d_o}{E\+S\+T\+A\+DO}} $\ast$}]{estado }\end{DoxyParamCaption})}
+
+
+
+Função que obtem o número de comandos. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Estado} & Esta funçao recebe um Estado\\
+\hline
+\end{DoxyParams}
+Esta função é contituída por um estado. A Finalidade é a contabilização de comandos utilizados durante o jogo. \begin{DoxyReturn}{Returns}
+um inteiro. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dados_8c_abbfeab93575f20e5867482fd41a71cba}\label{dados_8c_abbfeab93575f20e5867482fd41a71cba}} 
+\index{dados.c@{dados.c}!obter\_numero\_de\_jogadas@{obter\_numero\_de\_jogadas}}
+\index{obter\_numero\_de\_jogadas@{obter\_numero\_de\_jogadas}!dados.c@{dados.c}}
+\doxysubsubsection{\texorpdfstring{obter\_numero\_de\_jogadas()}{obter\_numero\_de\_jogadas()}}
+{\footnotesize\ttfamily int obter\+\_\+numero\+\_\+de\+\_\+jogadas (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_e_s_t_a_d_o}{E\+S\+T\+A\+DO}} $\ast$}]{estado }\end{DoxyParamCaption})}
+
+
+
+Função que obtem o número de jogadas. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Estado} & Esta funçao recebe um Estado.\\
+\hline
+\end{DoxyParams}
+Esta função é contituida por um estado. Apos cada jogador ter jogado uma vez, o numero de jogadas aumenta 1. \begin{DoxyReturn}{Returns}
+um inteiro 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dados_8c_ad8caae13c957510ffad5c07800ce9498}\label{dados_8c_ad8caae13c957510ffad5c07800ce9498}} 
+\index{dados.c@{dados.c}!obter\_numero\_de\_jogadas\_do\_jogador\_atual@{obter\_numero\_de\_jogadas\_do\_jogador\_atual}}
+\index{obter\_numero\_de\_jogadas\_do\_jogador\_atual@{obter\_numero\_de\_jogadas\_do\_jogador\_atual}!dados.c@{dados.c}}
+\doxysubsubsection{\texorpdfstring{obter\_numero\_de\_jogadas\_do\_jogador\_atual()}{obter\_numero\_de\_jogadas\_do\_jogador\_atual()}}
+{\footnotesize\ttfamily int obter\+\_\+numero\+\_\+de\+\_\+jogadas\+\_\+do\+\_\+jogador\+\_\+atual (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_e_s_t_a_d_o}{E\+S\+T\+A\+DO}} $\ast$}]{estado }\end{DoxyParamCaption})}
+
+
+
+Função que obtem o número de jogadas do jogador atual. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Estado} & Esta funçao recebe um Estado.\\
+\hline
+\end{DoxyParams}
+Esta função é contituida por um estado. Cada vez que um jogador joga, o número de jogadas por jogador aumenta 1. \begin{DoxyReturn}{Returns}
+um inteiro. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dados_8c_a7ba56142ce8672518e40f40cdba7b8af}\label{dados_8c_a7ba56142ce8672518e40f40cdba7b8af}} 
+\index{dados.c@{dados.c}!retomar\_tabuleiro\_na\_jogada@{retomar\_tabuleiro\_na\_jogada}}
+\index{retomar\_tabuleiro\_na\_jogada@{retomar\_tabuleiro\_na\_jogada}!dados.c@{dados.c}}
+\doxysubsubsection{\texorpdfstring{retomar\_tabuleiro\_na\_jogada()}{retomar\_tabuleiro\_na\_jogada()}}
+{\footnotesize\ttfamily int retomar\+\_\+tabuleiro\+\_\+na\+\_\+jogada (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_e_s_t_a_d_o}{E\+S\+T\+A\+DO}} $\ast$}]{e,  }\item[{int}]{x }\end{DoxyParamCaption})}
+
+
+
+Função que retoma o tabuleiro numa jogada. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Estado} & Esta funçao recebe um Estado. \\
+\hline
+{\em Estado} & Esta funçao recebe um inteiro. A finalidade desta função é poder voltar trás no jogo e recomeçar o jogo a partir jogada pretendida. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+um inteiro. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dados_8c_acffdde825ba4f9dbf5de6b9deac58f22}\label{dados_8c_acffdde825ba4f9dbf5de6b9deac58f22}} 
+\index{dados.c@{dados.c}!testa\_livre@{testa\_livre}}
+\index{testa\_livre@{testa\_livre}!dados.c@{dados.c}}
+\doxysubsubsection{\texorpdfstring{testa\_livre()}{testa\_livre()}}
+{\footnotesize\ttfamily int testa\+\_\+livre (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_e_s_t_a_d_o}{E\+S\+T\+A\+DO}} $\ast$}]{e,  }\item[{int}]{linha,  }\item[{int}]{coluna }\end{DoxyParamCaption})}
+
+
+
+Funão que testa uma casa livre. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Estado} & Esta funçao recebe um Estado. \\
+\hline
+{\em Estado} & Esta funçao recebe uma linha. \\
+\hline
+{\em Estado} & Esta funçao recebe uma coluna\\
+\hline
+\end{DoxyParams}
+A função testa livre verifica qual e o estado de uma casa, se a mesma estiver V\+A\+Z\+IO; 1 ou 2, é considerada como livre. \begin{DoxyReturn}{Returns}
+um inteiro. 
+\end{DoxyReturn}

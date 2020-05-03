@@ -1,0 +1,170 @@
+\hypertarget{logica_8c}{}\doxysection{logica/logica.c File Reference}
+\label{logica_8c}\index{logica/logica.c@{logica/logica.c}}
+{\ttfamily \#include \char`\"{}logica.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$zconf.\+h$>$}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{logica_8c_ac313d7e553b1e2b5f266acb9bfff8141}{jogar}} (\mbox{\hyperlink{struct_e_s_t_a_d_o}{E\+S\+T\+A\+DO}} $\ast$e, \mbox{\hyperlink{struct_c_o_o_r_d_e_n_a_d_a}{C\+O\+O\+R\+D\+E\+N\+A\+DA}} c)
+\begin{DoxyCompactList}\small\item\em Função jogar. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{logica_8c_ae08346e084cd1a38dc9ef23353582eb0}{jogada\+Valida}} (\mbox{\hyperlink{struct_e_s_t_a_d_o}{E\+S\+T\+A\+DO}} $\ast$estado, \mbox{\hyperlink{struct_c_o_o_r_d_e_n_a_d_a}{C\+O\+O\+R\+D\+E\+N\+A\+DA}} c)
+\begin{DoxyCompactList}\small\item\em Função que verifica a validade da jogada. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{logica_8c_a7d51eb2ad2d65a79ce85a1edbc10547d}{jogador\+Vencedor}} (\mbox{\hyperlink{struct_e_s_t_a_d_o}{E\+S\+T\+A\+DO}} $\ast$estado)
+\begin{DoxyCompactList}\small\item\em Função que apresenta o jogador vencedor. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{logica_8c_ae2e690b6e9b61131f16fdeed2d9e8da7}{imprimir\+\_\+tabuleiro}} (\mbox{\hyperlink{struct_e_s_t_a_d_o}{E\+S\+T\+A\+DO}} $\ast$estado, char $\ast$file\+\_\+name)
+\begin{DoxyCompactList}\small\item\em Função que imprime no tabuleiro. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{logica_8c_a8c7ce0b799bf0542d0e9b0060b0ea90f}{ler\+Tabuleiro}} (\mbox{\hyperlink{struct_e_s_t_a_d_o}{E\+S\+T\+A\+DO}} $\ast$estado, char $\ast$file\+\_\+name)
+\begin{DoxyCompactList}\small\item\em Função que lê o tabuleiro. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{logica_8c_a9780e740c8e99a503b810a6d833a7e67}\label{logica_8c_a9780e740c8e99a503b810a6d833a7e67}} 
+\mbox{\hyperlink{structnodo}{L\+I\+S\+TA}} {\bfseries adiciona\+\_\+coordenada\+\_\+lista} (\mbox{\hyperlink{structnodo}{L\+I\+S\+TA}} L, int linha, int coluna)
+\item 
+\mbox{\hyperlink{structnodo}{L\+I\+S\+TA}} \mbox{\hyperlink{logica_8c_a50200904fa9dc7eb4c0b25a1ea24f9db}{coordenadas\+\_\+vizinhas\+\_\+livres}} (\mbox{\hyperlink{struct_e_s_t_a_d_o}{E\+S\+T\+A\+DO}} $\ast$e)
+\begin{DoxyCompactList}\small\item\em Função que apresenta as coordenadas vizinhas livres. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{logica_8c_ac225e59c8a69b0d8b8fbcb89d05d4dd3}\label{logica_8c_ac225e59c8a69b0d8b8fbcb89d05d4dd3}} 
+int {\bfseries distancia\+\_\+coordenadas} (\mbox{\hyperlink{struct_c_o_o_r_d_e_n_a_d_a}{C\+O\+O\+R\+D\+E\+N\+A\+DA}} c1, \mbox{\hyperlink{struct_c_o_o_r_d_e_n_a_d_a}{C\+O\+O\+R\+D\+E\+N\+A\+DA}} c2)
+\item 
+void \mbox{\hyperlink{logica_8c_ad4d671e01b9d1aa08c32637f5c65bb62}{jogar\+\_\+euclidiana}} (\mbox{\hyperlink{struct_e_s_t_a_d_o}{E\+S\+T\+A\+DO}} $\ast$e)
+\begin{DoxyCompactList}\small\item\em Função que joga euclidiana. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{logica_8c_afc5c627432b5be68c3caf6186bdf714e}{jogar\+\_\+aleatorio}} (\mbox{\hyperlink{struct_e_s_t_a_d_o}{E\+S\+T\+A\+DO}} $\ast$e)
+\begin{DoxyCompactList}\small\item\em Função que joga aleatório. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{logica_8c_a50200904fa9dc7eb4c0b25a1ea24f9db}\label{logica_8c_a50200904fa9dc7eb4c0b25a1ea24f9db}} 
+\index{logica.c@{logica.c}!coordenadas\_vizinhas\_livres@{coordenadas\_vizinhas\_livres}}
+\index{coordenadas\_vizinhas\_livres@{coordenadas\_vizinhas\_livres}!logica.c@{logica.c}}
+\doxysubsubsection{\texorpdfstring{coordenadas\_vizinhas\_livres()}{coordenadas\_vizinhas\_livres()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structnodo}{L\+I\+S\+TA}} coordenadas\+\_\+vizinhas\+\_\+livres (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_e_s_t_a_d_o}{E\+S\+T\+A\+DO}} $\ast$}]{e }\end{DoxyParamCaption})}
+
+
+
+Função que apresenta as coordenadas vizinhas livres. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Estado} & Esta funçao recebe um estado. Quando se efetua uma jogada, esta função analisa as posições vizinhas que estão livres para se poder jogar. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{logica_8c_ae2e690b6e9b61131f16fdeed2d9e8da7}\label{logica_8c_ae2e690b6e9b61131f16fdeed2d9e8da7}} 
+\index{logica.c@{logica.c}!imprimir\_tabuleiro@{imprimir\_tabuleiro}}
+\index{imprimir\_tabuleiro@{imprimir\_tabuleiro}!logica.c@{logica.c}}
+\doxysubsubsection{\texorpdfstring{imprimir\_tabuleiro()}{imprimir\_tabuleiro()}}
+{\footnotesize\ttfamily int imprimir\+\_\+tabuleiro (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_e_s_t_a_d_o}{E\+S\+T\+A\+DO}} $\ast$}]{estado,  }\item[{char $\ast$}]{file\+\_\+name }\end{DoxyParamCaption})}
+
+
+
+Função que imprime no tabuleiro. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Estado} & Esta funçao recebe um estado. \\
+\hline
+{\em Estado} & Esta funçao recebe um char. Guarda o tabuleiro num ficheiro. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{logica_8c_ae08346e084cd1a38dc9ef23353582eb0}\label{logica_8c_ae08346e084cd1a38dc9ef23353582eb0}} 
+\index{logica.c@{logica.c}!jogadaValida@{jogadaValida}}
+\index{jogadaValida@{jogadaValida}!logica.c@{logica.c}}
+\doxysubsubsection{\texorpdfstring{jogadaValida()}{jogadaValida()}}
+{\footnotesize\ttfamily int jogada\+Valida (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_e_s_t_a_d_o}{E\+S\+T\+A\+DO}} $\ast$}]{estado,  }\item[{\mbox{\hyperlink{struct_c_o_o_r_d_e_n_a_d_a}{C\+O\+O\+R\+D\+E\+N\+A\+DA}}}]{c }\end{DoxyParamCaption})}
+
+
+
+Função que verifica a validade da jogada. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Estado} & Esta funçao recebe um Estado ( Branca, Preta ou Vazio). \\
+\hline
+{\em Coordenada} & Esta funçao recebe uma cordenada ( linha e coluna). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 se a jogada for válida e 0 se a jogada for inválida.
+\end{DoxyReturn}
+Inicialmente o tabuleiro é constituído por \textquotesingle{}1\textquotesingle{}, \textquotesingle{}2\textquotesingle{}, Estado Vazia e um estado Branca. Verifica se o estado esta ocupado por Vazio, Preta ou branca. Se tiver ocupado, returna o 0. Verifica a distância entre a linha da última jogada e a linha da coordenada atual. Se nao estiver nas posiçoes vizinhas, retorna 0. Verifica a distância entre a coluna da última jogada e a coluna da coordenada atual. Se nao estiver nas posiçoes vizinhas, retorna 0. Verifica o comprimento da linha e da coluna. Se for superior a 7, retorna 0. Se nenhum dos casos anteriores forem aceites, retorna 1. \mbox{\Hypertarget{logica_8c_a7d51eb2ad2d65a79ce85a1edbc10547d}\label{logica_8c_a7d51eb2ad2d65a79ce85a1edbc10547d}} 
+\index{logica.c@{logica.c}!jogadorVencedor@{jogadorVencedor}}
+\index{jogadorVencedor@{jogadorVencedor}!logica.c@{logica.c}}
+\doxysubsubsection{\texorpdfstring{jogadorVencedor()}{jogadorVencedor()}}
+{\footnotesize\ttfamily int jogador\+Vencedor (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_e_s_t_a_d_o}{E\+S\+T\+A\+DO}} $\ast$}]{estado }\end{DoxyParamCaption})}
+
+
+
+Função que apresenta o jogador vencedor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Estado} & Esta funçao recebe um Estado (Branca). Verifica se o estado \textquotesingle{}Branca\textquotesingle{} está na coordenada (linha, coluna). Se a coordenada (7,0) estiver ocupada pelo estado branca, o vencedor é o jogador 1. Se a coordenada (0,7) estiver ocupada pelo estado branca, o vencedor é o jogador 2.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Jogador vencedor. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{logica_8c_ac313d7e553b1e2b5f266acb9bfff8141}\label{logica_8c_ac313d7e553b1e2b5f266acb9bfff8141}} 
+\index{logica.c@{logica.c}!jogar@{jogar}}
+\index{jogar@{jogar}!logica.c@{logica.c}}
+\doxysubsubsection{\texorpdfstring{jogar()}{jogar()}}
+{\footnotesize\ttfamily int jogar (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_e_s_t_a_d_o}{E\+S\+T\+A\+DO}} $\ast$}]{estado,  }\item[{\mbox{\hyperlink{struct_c_o_o_r_d_e_n_a_d_a}{C\+O\+O\+R\+D\+E\+N\+A\+DA}}}]{c }\end{DoxyParamCaption})}
+
+
+
+Função jogar. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Estado} & Esta funçao recebe um Estado ( Branca, Preta ou Vazio). \\
+\hline
+{\em Coordenada} & Esta funçao recebe uma cordenada ( linha e coluna). Utiliza a função mudar estado. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{logica_8c_afc5c627432b5be68c3caf6186bdf714e}\label{logica_8c_afc5c627432b5be68c3caf6186bdf714e}} 
+\index{logica.c@{logica.c}!jogar\_aleatorio@{jogar\_aleatorio}}
+\index{jogar\_aleatorio@{jogar\_aleatorio}!logica.c@{logica.c}}
+\doxysubsubsection{\texorpdfstring{jogar\_aleatorio()}{jogar\_aleatorio()}}
+{\footnotesize\ttfamily void jogar\+\_\+aleatorio (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_e_s_t_a_d_o}{E\+S\+T\+A\+DO}} $\ast$}]{e }\end{DoxyParamCaption})}
+
+
+
+Função que joga aleatório. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Estado} & Esta funcão recebe um estado. Escolhe uma coordenada vizinha livre e joga aleatoriamente \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{logica_8c_ad4d671e01b9d1aa08c32637f5c65bb62}\label{logica_8c_ad4d671e01b9d1aa08c32637f5c65bb62}} 
+\index{logica.c@{logica.c}!jogar\_euclidiana@{jogar\_euclidiana}}
+\index{jogar\_euclidiana@{jogar\_euclidiana}!logica.c@{logica.c}}
+\doxysubsubsection{\texorpdfstring{jogar\_euclidiana()}{jogar\_euclidiana()}}
+{\footnotesize\ttfamily void jogar\+\_\+euclidiana (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_e_s_t_a_d_o}{E\+S\+T\+A\+DO}} $\ast$}]{e }\end{DoxyParamCaption})}
+
+
+
+Função que joga euclidiana. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Estado} & Esta funcão recebe um estado. Dependendo do jogador atual, escolhe a coordenada mais próxima do 1 ou do 2 para vencer o jogo. Se o jogador atual for o 1, irá ser escolhida a cooordenada mais próxima do numero 1. Se o jogador atual for o 2, irá ser escolhida a cooordenada mais próxima do numero 2. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{logica_8c_a8c7ce0b799bf0542d0e9b0060b0ea90f}\label{logica_8c_a8c7ce0b799bf0542d0e9b0060b0ea90f}} 
+\index{logica.c@{logica.c}!lerTabuleiro@{lerTabuleiro}}
+\index{lerTabuleiro@{lerTabuleiro}!logica.c@{logica.c}}
+\doxysubsubsection{\texorpdfstring{lerTabuleiro()}{lerTabuleiro()}}
+{\footnotesize\ttfamily void ler\+Tabuleiro (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_e_s_t_a_d_o}{E\+S\+T\+A\+DO}} $\ast$}]{estado,  }\item[{char $\ast$}]{file\+\_\+name }\end{DoxyParamCaption})}
+
+
+
+Função que lê o tabuleiro. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Estado} & Esta funçao recebe um estado. \\
+\hline
+{\em Estado} & Esta funçao recebe um char. a função vai buscar o tabuleiro guardado no ficheiro e se poder continuar o jogo a partir daquele momento \\
+\hline
+\end{DoxyParams}
