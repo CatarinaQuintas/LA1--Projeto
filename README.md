@@ -21,7 +21,9 @@
   **Inês**          Implementação da função que inicializa os jogadores
                     Implementação da função inicializa a peça branca
                   
-                  
+   
+   
+   
   ### Guião 6
   **Beatriz**       Implementação da função obter o número de jogadas por jogador 
                     Implementação da função jogador vencedor
@@ -35,6 +37,8 @@
                     Implementação da função que obtém o jogador atual 
                     
   
+  
+  
   ### Guião 7                  
   **Beatriz**       Implementação da função imprimir o tabuleiro
 
@@ -42,6 +46,8 @@
 
   **Inês**          Implementação da função Imprimir movs  
                     Implementar o comando “movs” no interpretador 
+
+
 
  ### Guião 8
  **Beatriz**        Implementação da função retomar tabuleiro na jogada 
@@ -51,7 +57,9 @@
 
  **Inês**           Implementar o comando “pos”  no interpretador.
                     Implementação da função retomar tabuleiro na jogada 
-                    
+ 
+ 
+ 
  ### Guião 9                   
  **Beatriz**       Criação do modulo listas 
                    Definir o tipo listas 
@@ -67,6 +75,8 @@
  **Inês**          Implementação da função que testa se as coordenadas são vizinhas  
                    Implementação da lista coordenadas vizinhas livres 
                    Implementação da lista adiciona coordenadas à lista 
+ 
+ 
  
  ### Guião 10     
  **Beatriz**        Implementação do bot 
