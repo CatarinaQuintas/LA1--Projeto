@@ -8,7 +8,7 @@
  
  
  ### Guião 5
- _**Beatriz**_       
+ _****Beatriz****_       
  - Implementação da função jogar 
  - Implementação da função que mostrar o tabuleiro
 
